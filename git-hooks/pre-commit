@@ -1,22 +1,14 @@
 #!/bin/sh
-# As I am not very happy with the PyPI versioning, I will suggest some
-# should-work-for-all workaround solution.
-#
-# What am I missing?
-#  * Simpel solution
-#  * Automatic versioning (fire-and-forget)
-#  * Still supporting manual versions
-#  * Unambiguous versions, even across branches or forks
-#  * Still PEP440 conform - (there is only one branch at PyPI..)
-
 # If someone has a simpler, yet equally powerful, idea, please send it to
 # me (mic at inofix.ch).
 
+# always find the version here..
 version_file=version.txt
-#setup_file=setup.py
+# send a copy to PyPI setup.py
+setup_file=setup.py
 
 if ! git describe >/dev/null 2>&1 ; then
-    echo "This project has no version info yet! Use 'git tag -a <version>'"
+    echo "This project has no version info yet! Use 'git tag -a <version>' to start versioning.."
     exit 1
 fi
 
@@ -26,7 +18,7 @@ if ! git diff --quiet HEAD ; then
         # this means all changes were added
 
         new_version=`git describe`
-        old_version=`grep "^Real Version: .*$" $version_file | awk '{print $3}'`
+        old_version=`grep "^Git Version: .*$" $version_file | awk '{print $3}'`
 
         if [ "$new_version" != "$old_version" ] ; then
 
@@ -36,19 +28,19 @@ if ! git diff --quiet HEAD ; then
                 i=$(($i+1))
             done
 
-            official_version="$v_0"
+            pypi_version="$v_0"
 
-            if [ -n "$v_1" ] ; then
-                official_version="$v_0.dev$v_1"
+            if [ -n "$v_1" && -n "$v_2" ] ; then
+                pypi_version="$v_0.dev$v_1+$v_2"
             fi
 
-            echo "The main script has changed, count up the version to $new_version ($official_version resp.)"
+            echo "Something has changed, count up the version to $new_version ($pypi_version resp.)"
 
-            sed -i 's;^Real Version: .*$;Real Version: '${new_version}';' $version_file
-            sed -i 's;^Official Version: .*$;Official Version: '${official_version}';' $version_file
+            sed -i 's;^Git Version: .*$;Real Version: '${new_version}';' $version_file
+            sed -i 's;^PyPI Version: .*$;Official Version: '${pypi_version}';' $version_file
             git add $version_file
-#            sed -i "s;    version='.*',;    version='${official_version}',;" $setup_file
-#            git add $setup_file
+            sed -i "s;    version='.*',;    version='${pypi_version}',;" $setup_file
+            git add $setup_file
         fi
     fi
 fi
