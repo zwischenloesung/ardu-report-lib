@@ -1,5 +1,5 @@
 {
-    "$id": "https://raw.githubusercontent.com/inofix/ardu-report/master/examples/custom-output-meta-schema.json",
+    "$id": "https://raw.githubusercontent.com/inofix/ardu-report-lib/master/examples/custom-output-meta-schema.json",
     "title": "Customized Sensor Data Meta Schema",
     "description": "Meta schema to show how translation works.",
     "type" : "object",
