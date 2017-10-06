@@ -1,7 +1,7 @@
 ardu-report-lib
 ===============
 
-.. .. image:: https://travis-ci.org/zwischenloesung/ardu-report-lib.svg?branch=master
+.. image:: https://travis-ci.org/zwischenloesung/ardu-report-lib.svg?branch=master
        :target: https://travis-ci.org/zwischenloesung/ardu-report-lib
 
 Python library to report back the sensor data from, e.g., our arduino(s).
