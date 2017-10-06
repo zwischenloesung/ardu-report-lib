@@ -1,2 +1,2 @@
-Real Version: 0.1-6-g4f642cb
-Official Version: 0.1.dev6
+Real Version: 0.1-7-g2b725ed
+Official Version: 0.1.dev7
