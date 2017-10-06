@@ -1,2 +1,3 @@
-Git Version: 0.1-13-g851b4ca
-PyPI Version: 0.1.dev13+g851b4ca
+Git Version: 0.9
+PyPI Version: 0.9
+
