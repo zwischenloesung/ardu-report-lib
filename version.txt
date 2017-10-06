@@ -1,2 +1,2 @@
-Real Version: 0.1
-Official Version: 0.1
+Real Version: 0.1-1-g3b5419a
+Official Version: 
