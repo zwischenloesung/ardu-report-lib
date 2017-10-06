@@ -6,7 +6,7 @@ ardu-report-lib
 
 Python library to report back the sensor data from, e.g., our arduino(s).
 
-See https://github.com/zwischenloesung/ardu-report for a CLI example using it.
+See https://github.com/zwischenloesung/ardu-report for a CLI using it.
 
 Dependencies, Requirements
 --------------------------
@@ -18,6 +18,7 @@ Dependencies, Requirements
   - see requrements.txt
 
  * Python 3 is not tested yet..
+
 
 Basic Idea
 ----------
@@ -32,21 +33,46 @@ in the data store object described above.
 A third reporter object can then be told to report the data on a regular basis to some URL.
 
 
-Use it for Your Project?
-------------------------
+Usage
+-----
+
+Import and Setup
+~~~~~~~~~~~~~~~~
+See https://github.com/zwischenloesung/ardu-report for a concrete example implementation.
+
+Import the classes::
+
+    from libardurep import datastore, datareporter, serialreader
+
+Create the objects (example)::
+
+    store = datastore.DataStore()
+    url = 'file:///tmp/example'
+    reporter = datareporter.DataReporter(store, url)
+    rounds = 10
+    device = '/dev/ttyACM0'
+    baudrate = 9600
+    reader = serialreader.SerialReader(device, baudrate, store, rounds)
+
+
+Does It Make Sense for Your Project?
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 As we really only
 need some sort of identifier and a value,
 for a valid sensor datum, it is quite trivial to accept
 a wide range of input JSON as provided by the sensor infrastructure
 and to be able to transform
-it to some output JSON as needed by some display infrastructure.
+it to some output JSON as needed by your display infrastructure.
 
 There is a meta schema definition in the 'schema' folder that
-describs the valid schemas. Any such valid schema can be provided
+describes the valid schemas. Any such valid schema can be provided
 to the data store object to describe the JSON expected to
 come from the sensor infrastructure and equally for the JSON
-that is desired as output.
+that is desired as output. Load the custom schema on DataStore
+creation like::
+
+    datastore.DataStore(input_schema, input_meta_schema, output_schema, output_meta_schema)
 
 The 'example' folder contains JSON file that
 validates against the schema and the tests/test\_json.py has
