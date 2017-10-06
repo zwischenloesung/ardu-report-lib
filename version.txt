@@ -1,2 +1,2 @@
-Git Version: 0.1-7-g2b725ed
-PyPI Version: 0.1.dev7-g2b725ed
+Git Version: 0.1-11-g0385766
+PyPI Version: 0.1.dev11+g0385766
