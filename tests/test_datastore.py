@@ -89,11 +89,11 @@ class TestDataStore(unittest.TestCase):
         j = '[ {"id":"a","value":"8","unit":"m"}, {"id":"b","value":"9"} ]'
         self.store.register_json(j)
         d = self.store.get_translated_data()
-        self.assertTrue(d.has_key('a'))
-        self.assertTrue(d.has_key('b'))
-        self.assertTrue(d['a'].has_key('ourVeryCustomSensorName'))
+        self.assertTrue('a' in d)
+        self.assertTrue('b' in d)
+        self.assertTrue('ourVeryCustomSensorName' in d['a'])
         self.assertTrue(d['a']['ourVeryCustomSensorName'] == 'a')
-        self.assertTrue(d['b'].has_key('sensorValue'))
+        self.assertTrue('sensorValue' in d['b'])
 
     def test_get_json(self):
         j = '[{"id":"foo","value":"777"}]'
