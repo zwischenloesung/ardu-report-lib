@@ -19,7 +19,7 @@ with open(path.join(here, 'README.rst'), encoding='utf-8') as f:
 
 setup(
     name='ardu-report-lib',
-    version='0.9.dev11+g29637dc',
+    version='0.9.dev12+g59cd8f0',
     description='Get sensor data over the serial line and send it to an URL (JSON).',
     long_description=long_description,
 
