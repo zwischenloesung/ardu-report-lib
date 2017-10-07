@@ -69,12 +69,10 @@ class TestDataStore(unittest.TestCase):
         result = self.store.get_text()
         rs = result.split("\n")
         r0 = re.sub(":.. ====", ":XX ====", rs[0])
-        r1 = rs[1]
-        r2 = rs[2]
 
         self.assertEqual(t0, r0)
-        self.assertEqual(t1, r1)
-        self.assertEqual(t2, r2)
+        self.assertTrue(t1 in rs)
+        self.assertTrue(t2 in rs)
 
     def test_get_tranlated_data(self):
         with open("./schemas/meta-schema.json", "r") as fh:
