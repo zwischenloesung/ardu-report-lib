@@ -49,6 +49,7 @@ class SerialReader(threading.Thread):
             while (self.do_run):
                 if (self.device.inWaiting() > 1):
                     l = self.device.readline()[:-2]
+                    l = l.decode()
 
                     if (l == "["):
                         # start recording
