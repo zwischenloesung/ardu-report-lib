@@ -1,3 +1,3 @@
-Git Version: 1.0-1-gd68f145
-PyPI Version: 1.0.dev1+gd68f145
+Git Version: 1.0-2-g0d6fae2
+PyPI Version: 1.0.dev2+g0d6fae2
 
