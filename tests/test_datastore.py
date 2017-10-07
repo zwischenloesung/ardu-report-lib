@@ -68,7 +68,7 @@ class TestDataStore(unittest.TestCase):
 
         result = self.store.get_text()
         rs = result.split("\n")
-        r0 = re.sub(":.. ====", ":XX ====", rs[0].encode("ascii"))
+        r0 = re.sub(":.. ====", ":XX ====", rs[0])
         r1 = rs[1]
         r2 = rs[2]
 
