@@ -139,6 +139,5 @@ class DataReporter(object):
             # if both user and password is set,
             #  1. encode to base 64 for basic auth
             if "user" in self.credentials and "password" in self.credentials:
-                self.credentials["base64"] = b64encode(self.credentials["user"]\
-                        + ":" + self.credentials["password"]).decode("ascii")
-
+                c = self.credentials["user"] + ":" + self.credentials["password"]
+                self.credentials["base64"] = b64encode(c.encode()).decode("ascii")
