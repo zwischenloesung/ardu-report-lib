@@ -75,7 +75,7 @@ class DataReporter(object):
             credentials = self.credentials
         if do_verify_certificate is None:
             do_verify_certificate = self.do_verify_certificate
-        if credentials and credentials.has_key("base64"):
+        if credentials and "base64" in credentials:
             headers = {"Content-Type": "application/json", \
                         'Authorization': 'Basic %s' % credentials["base64"]}
         else:
@@ -138,8 +138,7 @@ class DataReporter(object):
 
             # if both user and password is set,
             #  1. encode to base 64 for basic auth
-            if self.credentials.has_key("user") and \
-                            self.credentials.has_key("password"):
+            if "user" in self.credentials and "password" in self.credentials:
                 self.credentials["base64"] = b64encode(self.credentials["user"]\
                         + ":" + self.credentials["password"]).decode("ascii")
 
