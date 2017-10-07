@@ -36,7 +36,7 @@ class SerialReader(threading.Thread):
             if device:
                 self.device = serial.Serial(device, self.baudrate, timeout=timeout);
         except serial.serialutil.SerialException:
-            print "Could not connect to the serial line at " + self.device_name
+            print("Could not connect to the serial line at " + self.device_name)
 
     def run(self):
         """
@@ -71,7 +71,7 @@ class SerialReader(threading.Thread):
                         self.rounds -= 1
 
         except serial.serialutil.SerialException:
-            print "Could not connect to the serial line at " + self.device_name
+            print("Could not connect to the serial line at " + self.device_name)
 
     def halt(self):
         """

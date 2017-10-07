@@ -9,10 +9,10 @@ COPYRIGHT:    (C) 2017 by Michael Lustenberger and INOFIX GmbH
 """
 
 from base64 import b64encode
-import httplib
+import httplib2
 import re
 import requests
-import urllib2
+import urllib3
 
 class DataReporter(object):
     """
@@ -49,7 +49,7 @@ class DataReporter(object):
         """
         Write to standard output
         """
-        print self.store.get_text()
+        print(self.store.get_text())
 
     def log_file(self, url=None):
         """
@@ -62,8 +62,8 @@ class DataReporter(object):
             with open(f, "a") as of:
                 of.write(str(self.store.get_json_tuples(True)))
         except IOError as e:
-            print e
-            print "Could not write the content to the file.."
+            print(e)
+            print("Could not write the content to the file..")
 
     def log_post(self, url=None, credentials=None, do_verify_certificate=True):
         """

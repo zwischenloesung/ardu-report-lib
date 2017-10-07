@@ -145,11 +145,11 @@ class DataStore(object):
                 self.data[v[self.id_key]][self.time_key] = \
                                             self.last_data_timestamp
         except KeyError as e:
-            print "The main key was not found on the serial input line: " + \
-                    str(e)
+            print("The main key was not found on the serial input line: " + \
+                    str(e))
         except ValueError as e:
-            print "No valid JSON string received. Waiting for the next turn."
-            print "The error was: " + str(e)
+            print("No valid JSON string received. Waiting for the next turn.")
+            print("The error was: " + str(e))
 
     def get_text(self):
         """
