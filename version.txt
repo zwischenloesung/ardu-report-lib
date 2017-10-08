@@ -1,3 +1,3 @@
-Git Version: 1.0.1-2-g9b08cb1
-PyPI Version: 1.0.1.dev2+g9b08cb1
+Git Version: 1.0.1-3-ga745b12
+PyPI Version: 1.0.1.dev3+ga745b12
 

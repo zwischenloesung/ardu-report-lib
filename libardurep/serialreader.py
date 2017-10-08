@@ -79,7 +79,7 @@ class SerialReader(threading.Thread):
                         sleep(1)
                         # then count down..
                         self.age()
-                except UnicodeDecodeError:
+                except UnicodeDecodeError, ValueError:
                     # only accepting unicode: throw away the whole bunch
                     data = ""
                     # and count down the exit condition
