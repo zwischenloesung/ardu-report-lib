@@ -8,6 +8,12 @@ Python library to report back the sensor data from, e.g., our arduino(s).
 
 See https://github.com/zwischenloesung/ardu-report for a CLI using it.
 
+Status
+------
+
+Considered: Stable
+
+
 Dependencies, Requirements
 --------------------------
 
@@ -16,12 +22,6 @@ Dependencies, Requirements
  * Python 2.7, 3.3, 3.4, 3.5
 
   - see requirements.txt for the dependencies
-
-
-TODOs
------
-
- * Upload to PyPI
 
 
 Basic Idea
